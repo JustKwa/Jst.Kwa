@@ -5,6 +5,7 @@
   padding: 0;
   color: colorscheme.$text;
   font-size: 14pt;
+  line-height: 1.5;
 
   @media screen and (max-width: 480px) {
     font-size: 12pt;
@@ -18,6 +19,7 @@ body {
 
 a {
   text-decoration: none;
+  color: colorscheme.$link;
 }
 
 a:hover {
@@ -26,8 +28,10 @@ a:hover {
 }
 
 nav {
+  position: fixed;
+  top: 0;
   width: 100%;
-  height: 71px;
+  height: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -44,6 +48,7 @@ nav {
   .logo {
     font-weight: bold;
     font-size: 16pt;
+    color: colorscheme.$text;
   }
 
   .github {
@@ -107,12 +112,12 @@ nav {
     .about-me {
       h3 {
         font-size: 30px;
+
+        @media screen and (max-width: 480px) {
+          font-size: 25px;
+        }
       }
     }
-  }
-
-  .homepage-content:hover {
-    transform: translate(-1px, -1px);
   }
 }
 
