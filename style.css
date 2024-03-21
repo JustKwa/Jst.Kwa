@@ -92,28 +92,25 @@ nav .github {
     justify-self: center;
     align-items: center;
   }
-  .container .homepage-content .profile img {
-    height: 300px;
-  }
 }
 
 .container .homepage-content .profile .text .name {
-  font-size: 40pt;
+  font-size: 38pt;
 }
 
 .container .homepage-content .profile img {
-  height: 200px;
+  width: 200px;
   object-fit: cover;
   border-radius: 10px;
 }
 @media screen and (max-width: 708px) {
   .container .homepage-content .profile img {
-    height: 300px;
+    width: 360px;
   }
 }
 @media screen and (max-width: 480px) {
   .container .homepage-content .profile img {
-    height: 400px;
+    width: 80%;
   }
 }
 .container .homepage-content .about-me h3 {
