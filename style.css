@@ -13,6 +13,7 @@
 
 body {
   font-family: "Inter";
+  font-weight: 300;
   background-color: #c0bda5;
 }
 
@@ -116,16 +117,38 @@ nav .github {
   }
 }
 .container .homepage-content .about-me h3 {
-  font-size: 30pt;
+  font-weight: 500;
+  text-decoration: underline 4px;
+  text-underline-offset: 6px;
+  font-size: 28px;
+  padding-bottom: 5px;
 }
 @media screen and (max-width: 480px) {
   .container .homepage-content .about-me h3 {
-    font-size: 25px;
+    font-size: 23px;
   }
 }
 
+.container .homepage-content .about-me .contact-me {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+.container .homepage-content .about-me .contact-me a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.container .homepage-content .about-me img {
+  height: 30px;
+  width: 30px;
+}
+
 .text-bold {
-  font-weight: bold;
+  font-weight: 500;
 }
 
 .pd-10 {
