@@ -144,6 +144,48 @@ nav .github {
   width: 30px;
 }
 
+.container .homepage-content .projects {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container .homepage-content .about-me .embed {
+  height: 145px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.container .homepage-content .about-me .embed .thumbnail {
+  height: 100%;
+  width: 250px;
+}
+
+.container .homepage-content .about-me .content {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-left: 10px
+}
+
+.container .homepage-content .about-me .content h4 {
+  font-size: 25px;
+}
+
+/* .container .homepage-content .about-me .embed a {
+  font-size: 14px;
+} */
+
+.container .homepage-content .about-me .embed span {
+  width: full;
+  font-size: 14px;
+}
+
 .text-bold {
   font-weight: 500;
 }
@@ -156,5 +198,6 @@ nav .github {
   width: 100%;
   flex: 1;
 }
+
 
 /*# sourceMappingURL=style.css.map */
