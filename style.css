@@ -169,21 +169,54 @@ nav .github {
 .container .homepage-content .about-me .content {
   display: flex;
   flex-direction: column;
-  margin: auto;
-  margin-left: 10px
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .container .homepage-content .about-me .content h4 {
   font-size: 25px;
 }
 
-/* .container .homepage-content .about-me .embed a {
-  font-size: 14px;
-} */
-
 .container .homepage-content .about-me .embed span {
-  width: full;
   font-size: 14px;
+}
+
+@media screen and (max-width: 480px) {
+  .container .homepage-content .projects {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+    row-gap: 20px;
+  }
+
+  .container .homepage-content .about-me .embed {
+    flex-direction: column;
+    height: fit-content;
+    width: 150px;
+    margin: auto;
+  }
+
+  .container .homepage-content .about-me .embed .thumbnail {
+    width: 100%;
+    height: 110px;
+  }
+  .container .homepage-content .about-me .embed .content {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .container .homepage-content .about-me .embed .content h4 {
+    font-size: 16px;
+  }
+
+  .container .homepage-content .about-me .embed .content span {
+    font-size: 12px;
+  }
+
+  .container .homepage-content .about-me .embed .content .project-link {
+    display: none;
+  }
 }
 
 .text-bold {
@@ -198,6 +231,5 @@ nav .github {
   width: 100%;
   flex: 1;
 }
-
 
 /*# sourceMappingURL=style.css.map */
