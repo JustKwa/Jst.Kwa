@@ -1,12 +1,12 @@
 export default function initScrollFades() {
   const fades = Array.from(
-    document.querySelectorAll<HTMLElement>("[data-fade]"),
+    document.querySelectorAll<HTMLElement>('[data-fade]'),
   );
   const delta = 1 / 60;
 
   fades.forEach((el) => {
-    el.style.opacity = "0";
-    el.style.transition = "opacity 0.3s ease-in";
+    el.style.opacity = '0';
+    el.style.transition = 'opacity 0.3s ease-in';
   });
 
   function onScroll() {
@@ -18,7 +18,7 @@ export default function initScrollFades() {
     });
   }
 
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
-initScrollFades();
+// initScrollFades();
