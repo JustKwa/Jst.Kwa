@@ -1,11 +1,112 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '@/layouts/Layout.astro';
+import Introduction from '@/components/Introduction.astro';
+import Skills, { type Category }  from '@/components/skills/Skills.astro';
+import SectionContainer from '@/components/SectionContainer/SectionContainer.astro';
+import scrollManagerUrl from '../modules/scrollFade.ts?url';
+import ScrollToTop from '@/components/ScrollToTop.tsx';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const skillsData: Category[] = [
+  {
+    title: "Game Engines & Frameworks",
+    items: ["Unity", "Godot", "Cocos Creator", "Phaser3", "PixiJS", "Raylib", "Love2D"],
+  },
+  {
+    title: 'Programming Languages',
+    items: [
+      'TypeScript',
+      'JavaScript',
+      'Python',
+      'C/C++',
+      'C#',
+      'Java',
+      'GDScript',
+      'Lua',
+    ]},
+  {
+    title: "Game Development Software & Tools", // Renamed for clarity
+    items: [
+      "Git", 
+      "Visual Studio/+Code", 
+      "Aseprite", 
+      "Photoshop", 
+      "Blender", 
+      "Audacity", 
+      "Tiled",
+      "SpriteSheetPacker",
+      "Figma"
+    ],
+  },
+];
 ---
+<Layout title="Just Kwa – Portfolio">
+  <ScrollToTop client:load/>
+  <div class="w-full md:max-w-5xl mx-auto">
+    <div id="parent-container" class="container z-10">
+      <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white border" style="opacity: 0;"></div>
+      <!-- Hero / Introduction -->
+      <SectionContainer id="introduction">
+        <Introduction name="Khoa Nguyen" />
+      </SectionContainer>
 
-<Layout>
-	<Welcome />
+      <!-- Skills Section -->
+      <SectionContainer id="skills" className="border-t" header="Skills & Expertise">
+        <Skills categories={skillsData} />
+      </SectionContainer>
+
+      <!-- Projects Section -->
+      <SectionContainer id="projects" className="border-t" header="Projects">
+        <div class="flex flex-col gap-8">
+          {[
+          { title: 'Project 1', href: '/projects/project1', desc: 'Lorem ipsum dolor sit amet.' },
+          { title: 'Project 2', href: '/projects/project2', desc: 'Consectetur adipiscing elit.' },
+          { title: 'Project 3', href: '/projects/project3', desc: 'Sed do eiusmod tempor.' }
+          ].map((p) => (
+          <div class="bg-gray-100 p-6 rounded-lg">
+            <h3 class="font-semibold text-gray-900 mb-4">{p.title}</h3>
+            <p class="text-gray-600 leading-relaxed mb-4">{p.desc}</p>
+            <a href={p.href} class="text-blue-600 hover:text-blue-700">
+              View Project
+            </a>
+          </div>
+          ))}
+        </div>
+      </SectionContainer>
+
+      <!-- Footer -->
+      <footer class="p-8 border-t">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <p class="text-gray-600">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
+          <div class="flex space-x-6">
+            {[
+              ['fas fa-envelope','mailto:you@example.com'],
+              ['fab fa-linkedin','#'],
+              ['fab fa-twitter','#'],
+              ['fab fa-github','#'],
+              ['fab fa-itch-io','#']
+            ].map(([icon,href]) => (
+            <a href={href} class="text-gray-600 hover:text-gray-900 transition-colors">
+              <i class={`${icon} fa-2x`}></i>
+            </a>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script type="module" is:inline src={scrollManagerUrl}></script>
 </Layout>
+
+---
+<style>
+.container {
+  @media (min-width: 768px) {
+    position: relative;
+    top: calc(50vh - 26rem /2);
+  }
+}
+.fake-container {
+  z-index: -1;
+}
+</style>
+

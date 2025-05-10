@@ -1,0 +1,8 @@
+---
+import SectionContainerComponent from "./SectionContainerComponent";
+
+const { id, className, header } = Astro.props;
+---
+<SectionContainerComponent id={id} className={className} header={header}>
+  <slot />
+</SectionContainerComponent>

@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+:root {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-size: 2rem;
+}
+p {
+  font-size: 1.5rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+li {
+  font-size: 1.2rem;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Utility classes */
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+.animate-fade-out {
+  animation: fade-out 0.5s ease-out both;
+}
+
+#Introduction {
+  min-height: 26rem;
+}

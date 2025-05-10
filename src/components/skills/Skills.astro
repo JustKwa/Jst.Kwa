@@ -1,0 +1,22 @@
+---
+import CategoryColumn from './CategoryColumn.astro';
+
+export interface Category {
+  title: string;
+  items: string[];
+}
+
+ interface CategoryProps {
+  categories: Category[];
+}
+
+const { categories = [] } = Astro.props as CategoryProps;
+---
+<div
+  class="pl-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3
+  gap-8" 
+>
+  {categories.map((cat: Category) => (
+  <CategoryColumn title={cat.title} items={cat.items} />
+  ))}
+</div>
