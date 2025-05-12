@@ -40,6 +40,13 @@ const skillsData: Category[] = [
 ---
 <Layout title="Just Kwa – Portfolio">
   <ScrollToTop client:load/>
+  <img
+    src="/scroll-down.webp"
+    alt="Animated decoration"
+    data-fade-inverse
+    class="fixed bottom-0 w-full pointer-events-none z-20 scroll-down"
+    aria-hidden="true"
+  />
   <div class="w-full md:max-w-4xl mx-auto">
     <div id="parent-container" class="container z-10">
       <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white" style="opacity: 0;"></div>
@@ -104,6 +111,20 @@ const skillsData: Category[] = [
  }
 .fake-container {
   z-index: -1;
+}
+.scroll-down {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  z-index: 20;
+  pointer-events: none;
+  transform: translateX(-50%);
+  max-width: 100px;
+  bottom: 10px;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 </style>
 

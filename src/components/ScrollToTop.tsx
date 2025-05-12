@@ -15,13 +15,19 @@ const ScrollToTop = () => {
     const fades = Array.from(
       document.querySelectorAll<HTMLElement>('[data-fade]'),
     );
+    const fadesInverse = Array.from(
+      document.querySelectorAll<HTMLElement>('[data-fade-inverse]'),
+    );
     const intro = document.getElementById('introduction');
     const delta = 1 / 60;
 
     fades.forEach((el) => {
       el.style.opacity = 'r';
-      el.style.transition = 'opacity 0.3s ease-in';
-      // el.classList.add('retro-border');
+      el.style.transition = 'opacity 0.15s ease-in';
+    });
+    fadesInverse.forEach((el) => {
+      el.style.opacity = 'r';
+      el.style.transition = 'opacity 0.1s ease-in';
     });
 
     function onScroll() {
@@ -30,6 +36,9 @@ const ScrollToTop = () => {
       opacityRef.current = opacity;
       fades.forEach((el) => {
         el.style.opacity = opacity.toString();
+      });
+      fadesInverse.forEach((el) => {
+        el.style.opacity = (1 - opacity * 10).toString();
       });
       if (opacity <= 0.5) {
         intro?.classList.add('scaled-intro-in');
