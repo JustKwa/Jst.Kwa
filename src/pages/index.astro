@@ -21,6 +21,7 @@ const skillsData: Category[] = [
       'Java',
       'GDScript',
       'Lua',
+      'Bash'
     ]},
   {
     title: "Game Development Software & Tools", // Renamed for clarity
@@ -62,17 +63,17 @@ const skillsData: Category[] = [
 
       <!-- Projects Section -->
       <SectionContainer id="projects" className="" header="Projects">
-        <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4 w-full">
           {[
           { title: 'Project 1', href: '/projects/project1', desc: 'Lorem ipsum dolor sit amet.' },
           { title: 'Project 2', href: '/projects/project2', desc: 'Consectetur adipiscing elit.' },
           { title: 'Project 3', href: '/projects/project3', desc: 'Sed do eiusmod tempor.' }
           ].map((p) => (
-          <div class="bg-gray-100 p-6 rounded-lg">
-            <h3 class="font-semibold text-gray-900 mb-4">{p.title}</h3>
-            <p class="text-gray-600 leading-relaxed mb-4">{p.desc}</p>
-            <a href={p.href} class="text-blue-600 hover:text-blue-700">
-              View Project
+          <div class="p-6 retro-dialogue">
+            <h3 class="font-semibold mb-4">{p.title}</h3>
+            <p class="leading-relaxed mb-4">{p.desc}</p>
+            <a href='#' class="retro-border p-2 ml-auto block w-fit hover:scale-110">
+              Explore {'>>'} 
             </a>
           </div>
           ))}
@@ -85,14 +86,14 @@ const skillsData: Category[] = [
           <p class="text-gray-600">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
           <div class="flex space-x-6">
             {[
-              ['fas fa-envelope','mailto:you@example.com'],
-              ['fab fa-linkedin','#'],
-              ['fab fa-twitter','#'],
-              ['fab fa-github','#'],
-              ['fab fa-itch-io','#']
+              ['fas fa-envelope','mailto:khoadtnwin@gmail.com'],
+              ['fab fa-linkedin','https://www.linkedin.com/in/khoa-nguyen-0455b6265/'],
+              ['fab fa-twitter','https://x.com/JstKwa'],
+              ['fab fa-github','https://github.com/JustKwa'],
+              ['fab fa-itch-io','https://jstkwa.itch.io/']
             ].map(([icon,href]) => (
-            <a href={href} class="text-gray-600 hover:text-gray-900 transition-colors">
-              <i class={`${icon} fa-2x`}></i>
+            <a href={href}>
+              <i class={`${icon} fa-2x hover:scale-110 social-links`}></i>
             </a>
             ))}
           </div>
@@ -119,12 +120,18 @@ const skillsData: Category[] = [
   z-index: 20;
   pointer-events: none;
   transform: translateX(-50%);
-  max-width: 100px;
+  max-width: 92px;
   bottom: 10px;
   width: 100%;
   height: auto;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+}
+.social-links{
+  color: var(--retro-text);
+}
+.social-links:hover  {
+  color: var(--retro-text-muted);
 }
 </style>
 

@@ -1,0 +1,16 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+import {type Project} from '@/content/content_config';
+
+const projectsContent = await getEntry('projects', 'project_test') as Project;
+const {Content } = await render(projectsContent);
+---
+
+<Layout title="Projects">
+  <section>
+    <h1>{projectsContent.data.title}</h1>
+    <p>{projectsContent.data.description}</p>
+    <Content/>
+  </section>
+</Layout>

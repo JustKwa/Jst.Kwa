@@ -1,0 +1,22 @@
+import { glob } from 'astro/loaders';
+import { defineCollection, z } from 'astro:content';
+
+export type Project = {
+  data: {
+    title: string;
+    description: string;
+  };
+};
+
+const projects = defineCollection({
+  loader: glob({
+    pattern: 'src/content/projects/*.md',
+    base: 'src/content/projects/*.md',
+  }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+  }),
+});
+
+export const collections = { projects };
