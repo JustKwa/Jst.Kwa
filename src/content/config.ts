@@ -10,8 +10,8 @@ export type Project = {
 
 const projects = defineCollection({
   loader: glob({
-    pattern: 'src/content/projects/*.md',
-    base: 'src/content/projects/*.md',
+    pattern: '**/**/*.md',
+    base: 'src/content/projects/',
   }),
   schema: z.object({
     title: z.string(),
