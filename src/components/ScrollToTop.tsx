@@ -5,6 +5,9 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document
+      .getElementById('introduction')
+      ?.classList.add('scaled-intro-initial');
     initScrollFades();
   }, []);
 
@@ -16,8 +19,9 @@ const ScrollToTop = () => {
     const delta = 1 / 60;
 
     fades.forEach((el) => {
-      el.style.opacity = '0';
+      el.style.opacity = 'r';
       el.style.transition = 'opacity 0.3s ease-in';
+      // el.classList.add('retro-border');
     });
 
     function onScroll() {

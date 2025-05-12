@@ -42,19 +42,19 @@ const skillsData: Category[] = [
   <ScrollToTop client:load/>
   <div class="w-full md:max-w-4xl mx-auto">
     <div id="parent-container" class="container z-10">
-      <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white border" style="opacity: 0;"></div>
+      <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white" style="opacity: 0;"></div>
       <!-- Hero / Introduction -->
-      <SectionContainer id="introduction">
-        <Introduction name="Khoa Nguyen" />
+      <SectionContainer id="introduction" >
+          <Introduction name="Khoa Nguyen" />
       </SectionContainer>
 
       <!-- Skills Section -->
-      <SectionContainer id="skills" className="border-t" header="Skills & Expertise">
+      <SectionContainer id="skills" className="" header="Skills & Expertise">
         <Skills categories={skillsData} />
       </SectionContainer>
 
       <!-- Projects Section -->
-      <SectionContainer id="projects" className="border-t" header="Projects">
+      <SectionContainer id="projects" className="" header="Projects">
         <div class="flex flex-col gap-8">
           {[
           { title: 'Project 1', href: '/projects/project1', desc: 'Lorem ipsum dolor sit amet.' },
@@ -73,7 +73,7 @@ const skillsData: Category[] = [
       </SectionContainer>
 
       <!-- Footer -->
-      <footer class="p-8 border-t">
+      <footer class="p-8 retro-border">
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
           <p class="text-gray-600">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
           <div class="flex space-x-6">
@@ -95,14 +95,13 @@ const skillsData: Category[] = [
   </div>
 </Layout>
 
----
 <style>
 .container {
-  @media (min-width: 768px) {
-    position: relative;
-    top: calc(50vh - 20rem /2);
-  }
-}
+   @media (min-width: 768px) {
+     position: relative;
+     top: calc(50vh - 22rem /2);
+   }
+ }
 .fake-container {
   z-index: -1;
 }
