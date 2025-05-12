@@ -19,15 +19,15 @@ const ScrollToTop = () => {
       document.querySelectorAll<HTMLElement>('[data-fade-inverse]'),
     );
     const intro = document.getElementById('introduction');
-    const delta = 1 / 60;
+    const delta = 1 / 24;
 
     fades.forEach((el) => {
-      el.style.opacity = 'r';
-      el.style.transition = 'opacity 0.15s ease-in';
+      el.style.opacity = '0';
+      // el.style.transition = 'opacity 0.15s ease-in';
     });
     fadesInverse.forEach((el) => {
-      el.style.opacity = 'r';
-      el.style.transition = 'opacity 0.1s ease-in';
+      el.style.opacity = '1';
+      // el.style.transition = 'opacity 0.1s ease-in';
     });
 
     function onScroll() {
@@ -40,13 +40,13 @@ const ScrollToTop = () => {
       fadesInverse.forEach((el) => {
         el.style.opacity = (1 - opacity * 10).toString();
       });
-      if (opacity <= 0.5) {
+      if (opacity <= 0.3) {
         intro?.classList.add('scaled-intro-in');
         intro?.classList.remove('scaled-intro-out');
-        return;
+      } else if (opacity >= 0.0) {
+        intro?.classList.add('scaled-intro-out');
+        intro?.classList.remove('scaled-intro-in');
       }
-      intro?.classList.add('scaled-intro-out');
-      intro?.classList.remove('scaled-intro-in');
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });
