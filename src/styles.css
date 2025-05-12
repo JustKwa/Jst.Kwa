@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
 :root {
-  font-family: 'Crimson Pro', serif;
   --retro-bg: #e3cfa4;
   --retro-bg-dark: #c7a96b;
   --retro-bg-darker: #8c6b3f;
@@ -17,6 +16,7 @@
 }
 
 * {
+  font-family: 'Crimson Pro', serif;
   border-radius: 0;
   color: var(--retro-text);
 }
