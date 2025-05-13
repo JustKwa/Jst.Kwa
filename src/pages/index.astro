@@ -1,45 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import Introduction from '@/components/Introduction.astro';
-import Skills, { type Category }  from '@/components/skills/Skills.astro';
+import Skills from '@/components/skills/Skills.astro';
 import SectionContainer from '@/components/SectionContainer/SectionContainer.astro';
 import ScrollToTop from '@/components/ScrollToTop.tsx';
-
-const skillsData: Category[] = [
-  {
-    title: "Game Engines & Frameworks",
-    items: ["Unity", "Godot", "Cocos Creator", "Phaser3", "PixiJS", "Raylib", "Love2D"],
-  },
-  {
-    title: 'Programming Languages',
-    items: [
-      'TypeScript',
-      'JavaScript',
-      'Python',
-      'C/C++',
-      'C#',
-      'Java',
-      'GDScript',
-      'Lua',
-      'Bash'
-    ]},
-  {
-    title: "Game Development Software & Tools", // Renamed for clarity
-    items: [
-      "Git", 
-      "Visual Studio/+Code", 
-      "Aseprite", 
-      "Photoshop", 
-      "Blender", 
-      "Audacity", 
-      "Tiled",
-      "SpriteSheetPacker",
-      "Figma"
-    ],
-  },
-];
+import strings from '@/utils/string';
+const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, social, skillsData } = strings;
 ---
-<Layout title="Just Kwa – Portfolio">
+<Layout title={title}>
   <ScrollToTop client:load/>
   <img
     src="/scroll-down.webp"
@@ -53,29 +21,25 @@ const skillsData: Category[] = [
       <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white" style="opacity: 0;"></div>
       <!-- Hero / Introduction -->
       <SectionContainer id="introduction" >
-          <Introduction name="Khoa Nguyen" />
+        <Introduction name={name} summary={sum}/>
       </SectionContainer>
 
       <!-- Skills Section -->
-      <SectionContainer id="skills" className="" header="Skills & Expertise">
+      <SectionContainer id="skills" className="" header={skillsHeader}>
         <Skills categories={skillsData} />
       </SectionContainer>
 
       <!-- Projects Section -->
-      <SectionContainer id="projects" className="" header="Projects">
+      <SectionContainer id="projects" className="" header={projectsHeader}>
         <div class="flex flex-col gap-4 w-full">
-          {[
-          { title: 'Project 1', href: '/projects/project1', desc: 'Lorem ipsum dolor sit amet.' },
-          { title: 'Project 2', href: '/projects/project2', desc: 'Consectetur adipiscing elit.' },
-          { title: 'Project 3', href: '/projects/project3', desc: 'Sed do eiusmod tempor.' }
-          ].map((p) => (
-          <div class="p-6 retro-dialogue">
-            <h3 class="font-semibold mb-4">{p.title}</h3>
-            <p class="leading-relaxed mb-4">{p.desc}</p>
-            <a href='#' class="retro-border p-2 ml-auto block w-fit hover:scale-110">
-              Explore {'>>'} 
-            </a>
-          </div>
+          {projects.map((p) => (
+            <div class="p-6 retro-dialogue">
+              <h3 class="font-semibold mb-4">{p.title}</h3>
+              <p class="leading-relaxed mb-4">{p.desc}</p>
+              <a href={p.href} class="retro-border p-2 ml-auto block w-fit hover:scale-110">
+                Explore {'>>'} 
+              </a>
+            </div>
           ))}
         </div>
       </SectionContainer>
@@ -83,18 +47,12 @@ const skillsData: Category[] = [
       <!-- Footer -->
       <footer class="p-4 retro-border">
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <p class="text-gray-600 copyright">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
+          <p class="text-gray-600 copyright">&copy; {new Date().getFullYear()} {copyright}</p>
           <div class="flex space-x-6">
-            {[
-              ['fas fa-envelope','mailto:khoadtnwin@gmail.com'],
-              ['fab fa-linkedin','https://www.linkedin.com/in/khoa-nguyen-0455b6265/'],
-              ['fab fa-twitter','https://x.com/JstKwa'],
-              ['fab fa-github','https://github.com/JustKwa'],
-              ['fab fa-itch-io','https://jstkwa.itch.io/']
-            ].map(([icon,href]) => (
-            <a href={href}>
-              <i class={`${icon} fa-2x hover:scale-110 social-links`}></i>
-            </a>
+            {social.map(([icon, href]) => (
+              <a href={href}>
+                <i class={`${icon} fa-2x hover:scale-110 social-links`}></i>
+              </a>
             ))}
           </div>
         </div>
