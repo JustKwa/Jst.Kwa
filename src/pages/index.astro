@@ -48,7 +48,7 @@ const skillsData: Category[] = [
     class="fixed bottom-0 w-full pointer-events-none z-20 scroll-down"
     aria-hidden="true"
   />
-  <div class="w-full md:max-w-4xl mx-auto">
+  <div class="w-full md:max-w-7/12 mx-auto">
     <div id="parent-container" class="container z-10">
       <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white" style="opacity: 0;"></div>
       <!-- Hero / Introduction -->
@@ -81,9 +81,9 @@ const skillsData: Category[] = [
       </SectionContainer>
 
       <!-- Footer -->
-      <footer class="p-8 retro-border">
+      <footer class="p-4 retro-border">
         <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-          <p class="text-gray-600">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
+          <p class="text-gray-600 copyright">&copy; {new Date().getFullYear()} Just Kwa. All rights reserved.</p>
           <div class="flex space-x-6">
             {[
               ['fas fa-envelope','mailto:khoadtnwin@gmail.com'],
@@ -132,6 +132,9 @@ const skillsData: Category[] = [
 }
 .social-links:hover  {
   color: var(--retro-text-muted);
+}
+.copyright {
+  font-size: 24px;
 }
 </style>
 

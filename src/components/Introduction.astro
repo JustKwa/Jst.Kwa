@@ -1,25 +1,23 @@
 ---
 const { name = "Just Kwa", summary = `
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-      euismod, nisl eget consectetur sagittis, nisl nunc consectetur nisi, euismod aliquam nisl nunc euismod.`} = Astro.props;
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+euismod, nisl eget consectetur sagittis, nisl nunc consectetur nisi, euismod aliquam nisl nunc euismod.`} = Astro.props;
 ---
 <div class="flex flex-col md:flex-row items-center justify-center">
   <!-- Left: image placeholder -->
   <div class="w-full md:w-1/3 retro-dialogue">
     <div
-      class="bg-gray-200 rounded-lg p-4 h-64 flex items-center justify-center"
+      class="bg-gray-200 p-4 h-64 flex items-center justify-center"
     >
       <span class="text-gray-500 text-lg">Image Placeholder</span>
     </div>
   </div>
   <!-- Right: intro text with overlay -->
-  <div class="w-full md:w-3/5 mx-auto retro-dialogue">
-    <div class="p-8">
-      <h1 class="font-bold mb-4 text-2xl md:text-3xl">{name}</h1>
-      <p class="summmary-text mb-6 leading-relaxed">
+  <div class="w-full ml-auto h-full retro-dialogue">
+      <h1 class="font-bold absolute left-2 top-1">{name}</h1>
+      <p class="summmary-text mt-10 leading-relaxed p-2">
         {summary}
       </p>
-    </div>
   </div>
 </div>
 
