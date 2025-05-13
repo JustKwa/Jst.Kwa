@@ -8,6 +8,12 @@ import strings from '@/utils/string';
 const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, social, skillsData } = strings;
 ---
 <Layout title={title}>
+  <div class="mobile-unavailable">
+    <div class="mobile-unavailable-content">
+      <h2>Mobile Device Unavailable</h2>
+      <p>This site is not available on mobile devices. Please use a desktop browser.</p>
+    </div>
+  </div>
   <ScrollToTop client:load/>
   <img
     src="/scroll-down.webp"
@@ -16,7 +22,7 @@ const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, soc
     class="fixed bottom-0 w-full pointer-events-none z-20 scroll-down"
     aria-hidden="true"
   />
-  <div class="w-full md:max-w-7/12 mx-auto">
+  <div class="home-page w-full mx-auto">
     <div id="parent-container" class="container z-10">
       <div data-fade class="fake-container absolute inset-0 w-full h-full bg-white" style="opacity: 0;"></div>
       <!-- Hero / Introduction -->
@@ -94,5 +100,37 @@ const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, soc
 .copyright {
   font-size: 24px;
 }
+.mobile-unavailable {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .mobile-unavailable {
+    display: flex;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(30, 30, 30, 0.95);
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile-unavailable-content {
+    color: #fff;
+    background: #222;
+    padding: 2rem 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    text-align: center;
+    max-width: 90vw;
+  }
+  .mobile-unavailable-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  .mobile-unavailable-content p {
+    font-size: 1.1rem;
+  }
+}
+
 </style>
 

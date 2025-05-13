@@ -186,6 +186,14 @@ li {
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
     line-height: 1.1;
   }
+  p {
+    @media (max-width: 1314px) {
+      font-size: 32px;
+      parent-container {
+        @apply w-4xl;
+      }
+    }
+  }
 }
 
 .retro-dialogue::before,
@@ -263,5 +271,18 @@ li {
   }
   80% {
     top: 0px;
+  }
+}
+
+.home-page {
+  @apply w-6xl;
+  @media (max-width: 1400px) {
+    @apply w-5xl;
+  }
+  @media (max-width: 1314px) {
+    @apply w-4xl;
+  }
+  @mediua (max-width: 768px) {
+    @apply w-3xl;
   }
 }
