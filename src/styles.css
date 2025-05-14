@@ -286,3 +286,10 @@ li {
     @apply w-3xl;
   }
 }
+
+.mobile-unavailable-content {
+  h2,
+  p {
+    color: #fff;
+  }
+}

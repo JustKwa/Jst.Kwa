@@ -108,27 +108,35 @@ const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, soc
   .mobile-unavailable {
     display: flex;
     position: fixed;
-    z-index: 9999;
+    z-index: 99999;
     inset: 0;
-    background: rgba(30, 30, 30, 0.95);
+    background: #000;
     align-items: center;
     justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: all;      /* Block all pointer events */
+    touch-action: none;       /* Block touch events */
+    user-select: none;        /* Prevent text selection */
   }
   .mobile-unavailable-content {
     color: #fff;
-    background: #222;
-    padding: 2rem 2.5rem;
-    border-radius: 1rem;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    background: transparent;
+    padding: 3rem 2.5rem;
+    border-radius: 1.5rem;
     text-align: center;
-    max-width: 90vw;
+    max-width: 95vw;
   }
   .mobile-unavailable-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    letter-spacing: 1px;
   }
   .mobile-unavailable-content p {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
   }
 }
 
