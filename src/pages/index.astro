@@ -105,6 +105,12 @@ const { name, sum, title, skillsHeader, projectsHeader, projects, copyright, soc
 }
 
 @media (max-width: 767px) {
+  html, body {
+    overflow:hidden !important;
+    height: 100%;
+    touch-action: none !important;
+  }
+
   .mobile-unavailable {
     display: flex;
     position: fixed;

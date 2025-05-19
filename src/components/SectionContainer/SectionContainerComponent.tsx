@@ -19,7 +19,7 @@ const SectionContainer: FunctionalComponent<Props> = ({
     <section
       id={id}
       {...(!isIntro ? { 'data-fade': '' } : {})}
-      className={`section-container p-5 flex flex-col md:flex-row gap-4 ${className.trim()} ${isIntro ? '' : 'retro-border-t'}`}
+      className={`section-container p-5 flex flex-col items-center ${className.trim()} ${isIntro ? '' : 'retro-border-t'}`}
       style={{ opacity: isIntro ? 1 : 0 }}
     >
       {isIntro && (
@@ -28,7 +28,7 @@ const SectionContainer: FunctionalComponent<Props> = ({
           data-fade
         ></div>
       )}
-      {header && <h2 class="font-bold text-gray-900 mb-4 w-40">{header}</h2>}
+      {header && <h2 class="font-bold text-gray-900 mb-4">{header}</h2>}
       {children}
     </section>
   );
