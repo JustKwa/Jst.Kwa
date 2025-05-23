@@ -1,5 +1,6 @@
 ---
 const { title } = Astro.props;
+import ScrollToTop from '@/components/ScrollToTop.tsx';
 import '@/styles.css';
 ---
 <!DOCTYPE html>
@@ -12,10 +13,64 @@ import '@/styles.css';
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,200..900;1,200..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap">
   </head>
-  <body class="bg-gray-50 text-gray-950 relative overflow-x-hidden">
+  <body class="bg-gray-50 text-gray-950 relative overflow-x-hidden flex flex-col min-h-screen">
     <div class="background-blur" aria-hidden="true"></div>
+    <div class="mobile-unavailable">
+      <div class="mobile-unavailable-content">
+        <h2>Mobile Device Unavailable</h2>
+        <p>This site is not available on mobile devices. Please use a desktop browser.</p>
+      </div>
+    </div>
+    <ScrollToTop client:load/>
     <slot />
   </body>
 </html>
+
+<style>
+.mobile-unavailable {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    html, body {
+        overflow:hidden !important;
+        height: 100%;
+        touch-action: none !important;
+    }
+
+    .mobile-unavailable {
+        display: flex;
+        position: fixed;
+        z-index: 99999;
+        inset: 0;
+        background: #000;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: all;
+        touch-action: none;
+        user-select: none;
+    }
+    .mobile-unavailable-content {
+        color: #fff;
+        background: transparent;
+        padding: 3rem 2.5rem;
+        border-radius: 1.5rem;
+        text-align: center;
+        max-width: 95vw;
+    }
+    .mobile-unavailable-content h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        letter-spacing: 1px;
+    }
+    .mobile-unavailable-content p {
+        font-size: 1.5rem;
+        font-weight: 600;
+        line-height: 1.4;
+    }
+}
+</style>

@@ -1,16 +1,64 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { getEntry, render } from 'astro:content';
-import {type Project} from '@/content/content_config';
+import type { CollectionEntry } from 'astro:content';
+import strings from '@/utils/string';
+const { copyright, social } = strings;
 
-const projectsContent = await getEntry('projects', 'project_test') as Project;
-const {Content } = await render(projectsContent);
+const project: CollectionEntry<'projects'> | undefined = await getEntry('projects', 'tapdadoge');
+if (!project) {
+  throw new Error('Not found');
+}
+const { Content } = await render(project);
 ---
-
-<Layout title="Projects">
-  <section>
-    <h1>{projectsContent.data.title}</h1>
-    <p>{projectsContent.data.description}</p>
-    <Content/>
-  </section>
+<Layout title={'Projects'}>
+  <article class="home-page w-full mx-auto min-h-screen">
+    <div id="parent-container" class="container">
+      <div class="p-4 retro-border flex flex-col gap-2">
+      <!-- Project's Header -->
+        <div
+          id="header"
+        >
+          <h1>
+            {project.data.title}
+          </h1>
+          <span id="properties">Platform: </span><span>{project.data.platform}</span>
+          <br/>
+          <span id="properties">Engine: </span><span>{project.data.engine}</span>
+        </div>
+          <Content/>
+      </div>
+      <!-- Footer -->
+      <footer class="p-4 retro-border">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+          <p class="text-gray-600 copyright">&copy; {new Date().getFullYear()} {copyright}</p>
+          <div class="flex space-x-6">
+            {social.map(([icon, href]) => (
+              <a href={href}>
+                <i class={`${icon} fa-2x hover:scale-110 social-links`}></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      </footer>
+    </div>
+  </article>
 </Layout>
+
+<style>
+.container {
+  @media (min-width: 768px) {
+    position: relative;
+    top: calc(50vh - 16rem / 2);
+  }
+}
+
+h1 {
+  width: 100%;
+  text-align: center;
+}
+
+#test{
+  min-height: calc(100dvh - 16rem / 2);
+}
+</style>

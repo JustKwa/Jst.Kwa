@@ -73,13 +73,15 @@ h1 {
   font-size: 48px;
 }
 h2 {
-  font-size: 32px;
+  font-size: 40px;
 }
-p {
+p,
+span {
   font-size: 24px;
 }
 h3 {
-  font-size: 24px;
+  font-size: 32px;
+  text-decoration: underline;
 }
 li {
   font-size: 24px;
@@ -100,10 +102,6 @@ li {
   to {
     opacity: 0;
   }
-}
-
-#Introduction {
-  min-height: 26rem;
 }
 
 .scaled-intro-initial {
@@ -231,22 +229,6 @@ li {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* .wavy { */
-/*   display: inline-block; */
-/*   animation-name: wavy; */
-/*   animation-duration: 2s; */
-/*   animation-timing-function: ease; */
-/*   animation-iteration-count: infinite; */
-/*   position: relative; */
-/*   top: 0; */
-/*   left: 0; */
-/*   color: var(--retro-accent); */
-/*   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.18); */
-/*   font-family: 'Reactor7', serif; */
-/*   letter-spacing: 1px; */
-/*   font-weight: bold; */
-/* } */
-
 .wavy {
   display: inline-block;
   animation-name: wavy;
@@ -282,7 +264,7 @@ li {
   @media (max-width: 1314px) {
     @apply w-4xl;
   }
-  @mediua (max-width: 768px) {
+  @media (max-width: 768px) {
     @apply w-3xl;
   }
 }
